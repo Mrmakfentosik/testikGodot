@@ -1,0 +1,409 @@
+[gd_scene load_steps=24 format=3 uid="uid://daimq7usqnklc"]
+
+[ext_resource type="PackedScene" uid="uid://lpqr1mgf2umi" path="res://Мусор (предметы)/crate.tscn" id="1_ngy7h"]
+[ext_resource type="PackedScene" uid="uid://banujdbwwabq0" path="res://NPC и игрок/player.tscn" id="2_3gaaa"]
+[ext_resource type="Texture2D" uid="uid://b0jf1h1xl1gap" path="res://Textures/rocky_terrain_02_diff_4k.jpg" id="3_8st35"]
+[ext_resource type="PackedScene" uid="uid://cmsouu0j51mwb" path="res://NPC и игрок/npc.tscn" id="4_0u7wr"]
+[ext_resource type="Script" uid="uid://bc6khdnlj1bej" path="res://Меню/world_manager.gd" id="5_lmd4p"]
+[ext_resource type="PackedScene" uid="uid://bpa1afev6trcv" path="res://Враги/enemy.tscn" id="6_3gaaa"]
+[ext_resource type="Script" uid="uid://c0cyuq3e02l1m" path="res://Мир/enemy_spawner.gd" id="7_8st35"]
+[ext_resource type="Script" uid="uid://dw66ksc6vkpku" path="res://QuestManager.gd" id="8_0u7wr"]
+[ext_resource type="PackedScene" uid="uid://dli5hkna6pmmi" path="res://Сундук/chest.tscn" id="9_lmd4p"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_vl1uy"]
+
+[sub_resource type="Sky" id="Sky_vl1uy"]
+sky_material = SubResource("PhysicalSkyMaterial_vl1uy")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_5kvxf"]
+background_mode = 2
+sky = SubResource("Sky_vl1uy")
+ssao_intensity = 6.36
+glow_intensity = 0.23
+
+[sub_resource type="LabelSettings" id="LabelSettings_1amgx"]
+line_spacing = 4.015
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gaaa"]
+bg_color = Color(0.2051174, 0.20511746, 0.20511732, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8st35"]
+font_size = 351
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osnb2"]
+bg_color = Color(0.83574426, 0, 0.010177536, 1)
+
+[sub_resource type="FontFile" id="FontFile_0u7wr"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/6/0/ascent = 0.0
+cache/0/6/0/descent = 0.0
+cache/0/6/0/underline_position = 0.0
+cache/0/6/0/underline_thickness = 0.0
+cache/0/6/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/51/0/ascent = 0.0
+cache/0/51/0/descent = 0.0
+cache/0/51/0/underline_position = 0.0
+cache/0/51/0/underline_thickness = 0.0
+cache/0/51/0/scale = 1.0
+cache/0/56/0/ascent = 0.0
+cache/0/56/0/descent = 0.0
+cache/0/56/0/underline_position = 0.0
+cache/0/56/0/underline_thickness = 0.0
+cache/0/56/0/scale = 1.0
+cache/0/61/0/ascent = 0.0
+cache/0/61/0/descent = 0.0
+cache/0/61/0/underline_position = 0.0
+cache/0/61/0/underline_thickness = 0.0
+cache/0/61/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_lmd4p"]
+font = SubResource("FontFile_0u7wr")
+font_size = 5
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_8st35"]
+vertices = PackedVector3Array(-24.760002, 0.58100796, -12.553543, -17.010002, 0.58100796, -12.553543, -16.760002, 0.58100796, -13.553543, -15.760002, 0.58100796, -21.803543, -24.760002, 0.58100796, -21.803543, -15.760002, 0.58100796, -13.553543, -14.760002, 0.58100796, -3.553543, -15.760002, 0.58100796, -3.303543, -15.760002, 0.58100796, -2.053543, -14.760002, 0.58100796, -1.8035431, -0.76000214, 0.58100796, -15.803543, -1.0100021, 0.58100796, -17.803543, -14.760002, 0.58100796, -13.303543, -14.760002, 0.58100796, -11.553543, 14.489998, 0.58100796, -17.803543, 15.489998, 0.58100796, -18.053543, 15.489998, 0.58100796, -21.803543, 3.2399979, 0.58100796, -21.803543, 2.9899979, 0.58100796, -18.053543, 4.739998, 0.58100796, -17.803543, -14.760002, 0.58100796, -5.303543, 0.73999786, 0.58100796, -18.053543, 0.48999786, 0.58100796, -21.803543, -15.760002, 0.58100796, -11.303543, -15.760002, 0.58100796, -5.553543, 24.739998, 0.58100796, -4.303543, 16.739998, 0.58100796, -4.303543, 16.489998, 0.58100796, -3.303543, 24.739998, 0.58100796, 21.696457, 4.489998, 0.58100796, -15.803543, 14.489998, 0.58100796, -5.303543, 15.489998, 0.58100796, -5.553543, 15.489998, 0.58100796, -15.803543, 14.489998, 0.58100796, -16.053543, -14.760002, 0.58100796, -0.05354309, 14.489998, 0.58100796, -3.553543, -16.510002, 0.58100796, 0.19645691, -24.760002, 0.58100796, 21.696457, -24.760002, 0.58100796, 0.4464569, 16.739998, 0.58100796, -17.803543, 24.739998, 0.58100796, -16.303543, 24.739998, 0.58100796, -21.803543, 16.739998, 0.58100796, -16.303543, 16.489998, 0.58100796, -15.803543, 16.489998, 0.58100796, -5.553543, -16.510002, 0.58100796, -5.553543, -17.010002, 0.58100796, -11.553543, -24.760002, 0.58100796, -5.803543, -17.010002, 0.58100796, -1.8035431, -17.010002, 0.58100796, -3.553543, -17.010002, 0.58100796, -0.05354309, -17.010002, 0.58100796, -5.303543)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(13, 12, 10), PackedInt32Array(10, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 19), PackedInt32Array(16, 19, 18), PackedInt32Array(16, 18, 17), PackedInt32Array(6, 20, 10), PackedInt32Array(22, 21, 11), PackedInt32Array(24, 23, 13), PackedInt32Array(24, 13, 20), PackedInt32Array(20, 13, 10), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(5, 3, 12), PackedInt32Array(12, 3, 11), PackedInt32Array(11, 3, 22), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(33, 30, 29), PackedInt32Array(33, 29, 19), PackedInt32Array(34, 9, 10), PackedInt32Array(29, 30, 35), PackedInt32Array(37, 36, 34), PackedInt32Array(19, 14, 33), PackedInt32Array(9, 6, 10), PackedInt32Array(37, 38, 36), PackedInt32Array(29, 35, 10), PackedInt32Array(10, 35, 34), PackedInt32Array(34, 35, 37), PackedInt32Array(37, 35, 28), PackedInt32Array(35, 27, 28), PackedInt32Array(21, 22, 18), PackedInt32Array(18, 22, 17), PackedInt32Array(15, 16, 39), PackedInt32Array(39, 16, 41), PackedInt32Array(39, 41, 40), PackedInt32Array(40, 42, 39), PackedInt32Array(42, 40, 43), PackedInt32Array(43, 40, 44), PackedInt32Array(44, 40, 26), PackedInt32Array(26, 40, 25), PackedInt32Array(43, 44, 32), PackedInt32Array(32, 44, 31), PackedInt32Array(24, 45, 23), PackedInt32Array(23, 45, 46), PackedInt32Array(46, 45, 47), PackedInt32Array(46, 47, 0), PackedInt32Array(0, 1, 46), PackedInt32Array(8, 48, 7), PackedInt32Array(7, 48, 49), PackedInt32Array(48, 38, 49), PackedInt32Array(49, 38, 47), PackedInt32Array(50, 36, 38), PackedInt32Array(47, 45, 51), PackedInt32Array(48, 50, 38), PackedInt32Array(47, 51, 49)]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q3ku"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5kvxf"]
+albedo_texture = ExtResource("3_8st35")
+normal_enabled = true
+normal_scale = -10.96
+uv1_scale = Vector3(10.065, 10.065, 10.065)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5vp38"]
+material = SubResource("StandardMaterial3D_5kvxf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vp38"]
+size = Vector3(1, 1, 0.99902344)
+
+[node name="Word" type="Node3D" groups=["QuestLabel", "enemies", "player"]]
+
+[node name="Игрок" type="Node" parent="."]
+
+[node name="player" parent="Игрок" instance=ExtResource("2_3gaaa")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, -0.0009948376, 0, 0.0009948376, 0.9999995, 0, 1.8280663, 3.6715102)
+
+[node name="Свет и мир" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Свет и мир"]
+environment = SubResource("Environment_5kvxf")
+
+[node name="SpotLight3D" type="DirectionalLight3D" parent="Свет и мир"]
+transform = Transform3D(0.10577816, -0.028875282, -0.9939705, 0.9943898, 0.0030716066, 0.105733566, 0, -0.9995783, 0.029038196, -19.468676, 19.075245, 0.8634515)
+light_energy = 14.981
+
+[node name="Текст" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Текст"]
+process_mode = 3
+
+[node name="DialogueLabel" type="Panel" parent="Текст/CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 0.47700003
+offset_right = 0.15185547
+offset_bottom = -154.09601
+
+[node name="Label" type="Label" parent="Текст/CanvasLayer/DialogueLabel"]
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 158.0
+text = "Привет, это тест нпс"
+label_settings = SubResource("LabelSettings_1amgx")
+
+[node name="DeathScreen" type="Panel" parent="Текст/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3gaaa")
+
+[node name="Label" type="Label" parent="Текст/CanvasLayer/DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -972.0
+offset_top = -239.5
+offset_right = 972.0
+offset_bottom = 239.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Вы умерли"
+label_settings = SubResource("LabelSettings_8st35")
+
+[node name="RestartTimer" type="Timer" parent="Текст/CanvasLayer/DeathScreen"]
+one_shot = true
+
+[node name="Crosshair" type="Label" parent="Текст/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 96
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestLabel" type="Label" parent="Текст/CanvasLayer"]
+offset_right = 1916.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 101
+
+[node name="HealthBar" type="ProgressBar" parent="Текст/CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 522.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_osnb2")
+value = 100.0
+
+[node name="Меню" type="Node" parent="."]
+
+[node name="PauseMenu" type="CanvasLayer" parent="Меню"]
+process_mode = 3
+script = ExtResource("5_lmd4p")
+
+[node name="Panel" type="Panel" parent="Меню/PauseMenu"]
+offset_right = 464.0
+offset_bottom = 646.0
+
+[node name="ExitMenu" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_top = 125.0
+offset_right = 461.0
+offset_bottom = 229.0
+text = "Выход в меню"
+
+[node name="Start" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 462.0
+offset_bottom = 105.0
+text = "Продолжить"
+
+[node name="Exit" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 255.0
+offset_right = 464.0
+offset_bottom = 359.0
+text = "Выход"
+
+[node name="QuestsButton" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 376.0
+offset_right = 463.0
+offset_bottom = 475.0
+text = "Квесты"
+
+[node name="QuestsPanel" type="VBoxContainer" parent="Меню/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.003
+anchor_right = 1.0
+anchor_bottom = 0.003
+offset_left = -2.0
+offset_top = 0.061999917
+offset_right = 149.40643
+offset_bottom = 184.80034
+scale = Vector2(9.616499, 3.5022507)
+
+[node name="QuestText" type="Label" parent="Меню/PauseMenu/Panel/QuestsPanel"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "аппвыпвыпывпывпывпыпыпы"
+label_settings = SubResource("LabelSettings_lmd4p")
+
+[node name="Intentory" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 503.0
+offset_right = 464.0
+offset_bottom = 584.0
+text = "Инвентарь"
+
+[node name="InventoryPanel" type="Panel" parent="Меню/PauseMenu"]
+visible = false
+offset_left = 463.0
+offset_top = -1.0
+offset_right = 503.0
+offset_bottom = 39.0
+
+[node name="InventoryGrid" type="GridContainer" parent="Меню/PauseMenu/InventoryPanel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 39.0
+offset_bottom = 41.0
+columns = 4
+
+[node name="NPC" type="Node" parent="."]
+
+[node name="NPC" parent="NPC" node_paths=PackedStringArray("dialogue_panel", "dialogue_label") instance=ExtResource("4_0u7wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8797514, 1.1378627, -14.980881)
+dialogue_panel = NodePath("../../Текст/CanvasLayer/DialogueLabel")
+dialogue_label = NodePath("../../Текст/CanvasLayer/DialogueLabel/Label")
+
+[node name="Враги" type="Node" parent="."]
+
+[node name="Enemy" parent="Враги" instance=ExtResource("6_3gaaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9333882, 0.86113477, -11.640324)
+
+[node name="Enemy2" parent="Враги" instance=ExtResource("6_3gaaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.201345, 0.86113477, -11.640324)
+
+[node name="Enemy3" parent="Враги" instance=ExtResource("6_3gaaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8307581, 0.86113477, -11.640324)
+
+[node name="EnemySpawner" type="Node3D" parent="Враги"]
+script = ExtResource("7_8st35")
+
+[node name="SpawnTimer" type="Timer" parent="Враги/EnemySpawner"]
+wait_time = 3.0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_8st35")
+
+[node name="Ящики" type="Node" parent="NavigationRegion3D"]
+
+[node name="Crate" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66208935, -16.91323)
+
+[node name="Crate2" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6504252, 0.66208935, -16.91323)
+
+[node name="Crate3" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8118646, 2.1432471, -16.91323)
+
+[node name="Crate4" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8118646, 1.1732271, -16.91323)
+
+[node name="Crate5" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8118646, 0.6347053, -16.91323)
+
+[node name="Crate6" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.559193, 0.6347053, -16.91323)
+
+[node name="Crate7" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.559193, 0.6347053, -4.3072166)
+
+[node name="Crate8" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.896805, 0.6347053, -4.3072166)
+
+[node name="Crate9" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.896805, 0.6347053, -12.422172)
+
+[node name="Crate10" parent="NavigationRegion3D/Ящики" instance=ExtResource("1_ngy7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.896805, 0.6347053, -0.8041296)
+
+[node name="Земля" type="Node" parent="NavigationRegion3D"]
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D/Земля"]
+transform = Transform3D(5.168863, 0, 0, 0, 1, 0, 0, 0, 4.8806634, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_3q3ku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Земля/Floor"]
+transform = Transform3D(9.7739105, 0, 0, 0, 0.2784536, 0, 0, 0, 9.139554, 0, 0, 0)
+mesh = SubResource("BoxMesh_5vp38")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Земля/Floor"]
+transform = Transform3D(9.675413, 0, 0, 0, 0.2784536, 0, 0, 0, 8.988246, 0, -0.029765248, 0.0021796876)
+shape = SubResource("BoxShape3D_5vp38")
+
+[node name="Quest" type="Node" parent="." groups=["QuestLabel", "enemies", "player"]]
+script = ExtResource("8_0u7wr")
+
+[node name="Сундук" type="Node" parent="."]
+
+[node name="Chest" parent="Сундук" instance=ExtResource("9_lmd4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8321495, 0.85265875, 0)
+
+[node name="Chest2" parent="Сундук" instance=ExtResource("9_lmd4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4198194, 0.85265875, 0)
+
+[node name="Chest3" parent="Сундук" instance=ExtResource("9_lmd4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47334075, 0.85265875, 0)
+
+[node name="Chest4" parent="Сундук" instance=ExtResource("9_lmd4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.793324, 0.85265875, 0)
+
+[connection signal="button_up" from="Меню/PauseMenu/Panel/ExitMenu" to="Меню/PauseMenu" method="_on_exit_menu_button_up"]
+[connection signal="button_up" from="Меню/PauseMenu/Panel/Start" to="Меню/PauseMenu" method="_on_start_button_up"]
+[connection signal="button_up" from="Меню/PauseMenu/Panel/Exit" to="Меню/PauseMenu" method="_on_exit_button_up"]
+[connection signal="button_up" from="Меню/PauseMenu/Panel/QuestsButton" to="Меню/PauseMenu" method="_on_quests_button_button_up"]
+[connection signal="button_up" from="Меню/PauseMenu/Panel/Intentory" to="Меню/PauseMenu" method="_on_intentory_button_up"]
+[connection signal="timeout" from="Враги/EnemySpawner/SpawnTimer" to="Враги/EnemySpawner" method="_on_spawn_timer_timeout"]

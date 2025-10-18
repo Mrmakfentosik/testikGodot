@@ -1,0 +1,163 @@
+[gd_scene load_steps=14 format=3 uid="uid://daimq7usqnklc"]
+
+[ext_resource type="Script" uid="uid://bc6khdnlj1bej" path="res://world_manager.gd" id="1_2isbp"]
+[ext_resource type="PackedScene" uid="uid://banujdbwwabq0" path="res://player.tscn" id="1_3q3ku"]
+[ext_resource type="Texture2D" uid="uid://b0jf1h1xl1gap" path="res://Textures/rocky_terrain_02_diff_4k.jpg" id="2_vl1uy"]
+[ext_resource type="PackedScene" uid="uid://cmsouu0j51mwb" path="res://npc.tscn" id="3_1amgx"]
+[ext_resource type="PackedScene" uid="uid://lpqr1mgf2umi" path="res://crate.tscn" id="3_5kvxf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q3ku"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5kvxf"]
+albedo_texture = ExtResource("2_vl1uy")
+normal_enabled = true
+normal_scale = -10.96
+uv1_scale = Vector3(10.065, 10.065, 10.065)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5vp38"]
+material = SubResource("StandardMaterial3D_5kvxf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vp38"]
+size = Vector3(1, 1, 0.99902344)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_vl1uy"]
+
+[sub_resource type="Sky" id="Sky_vl1uy"]
+sky_material = SubResource("PhysicalSkyMaterial_vl1uy")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_5kvxf"]
+background_mode = 2
+sky = SubResource("Sky_vl1uy")
+ssao_intensity = 6.36
+glow_intensity = 0.23
+
+[sub_resource type="LabelSettings" id="LabelSettings_1amgx"]
+line_spacing = 4.015
+font_size = 50
+
+[node name="Word" type="Node3D"]
+
+[node name="Ящики" type="Node" parent="."]
+
+[node name="Crate" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66208935, -16.91323)
+
+[node name="Crate2" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6504252, 0.66208935, -16.91323)
+
+[node name="Crate3" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8118646, 2.1432471, -16.91323)
+
+[node name="Crate4" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8118646, 1.1732271, -16.91323)
+
+[node name="Crate5" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8118646, 0.6347053, -16.91323)
+
+[node name="Crate6" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.559193, 0.6347053, -16.91323)
+
+[node name="Crate7" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.559193, 0.6347053, -4.3072166)
+
+[node name="Crate8" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.896805, 0.6347053, -4.3072166)
+
+[node name="Crate9" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.896805, 0.6347053, -12.422172)
+
+[node name="Crate10" parent="Ящики" instance=ExtResource("3_5kvxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.896805, 0.6347053, -0.8041296)
+
+[node name="Игрок" type="Node" parent="."]
+
+[node name="player" parent="Игрок" instance=ExtResource("1_3q3ku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8280663, 0)
+
+[node name="Земля" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Земля"]
+transform = Transform3D(5.168863, 0, 0, 0, 1, 0, 0, 0, 4.8806634, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_3q3ku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Земля/Floor"]
+transform = Transform3D(9.7739105, 0, 0, 0, 0.2784536, 0, 0, 0, 9.139554, 0, 0, 0)
+mesh = SubResource("BoxMesh_5vp38")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Земля/Floor"]
+transform = Transform3D(9.675413, 0, 0, 0, 0.2784536, 0, 0, 0, 8.988246, 0, -0.029765248, 0.0021796876)
+shape = SubResource("BoxShape3D_5vp38")
+
+[node name="Свет и мир" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Свет и мир"]
+environment = SubResource("Environment_5kvxf")
+
+[node name="SpotLight3D" type="DirectionalLight3D" parent="Свет и мир"]
+transform = Transform3D(0.10577816, -0.028875282, -0.9939705, 0.9943898, 0.0030716066, 0.105733566, 0, -0.9995783, 0.029038196, -19.468676, 19.075245, 0.8634515)
+light_energy = 14.981
+
+[node name="Текст" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Текст"]
+
+[node name="DialogueLabel" type="Panel" parent="Текст/CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 0.47700003
+offset_right = 0.15185547
+offset_bottom = -154.09601
+
+[node name="Label" type="Label" parent="Текст/CanvasLayer/DialogueLabel"]
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 158.0
+text = "Привет, это тест нпс"
+label_settings = SubResource("LabelSettings_1amgx")
+
+[node name="NPC" type="Node" parent="Текст/CanvasLayer"]
+
+[node name="NPC" parent="Текст/CanvasLayer/NPC" node_paths=PackedStringArray("dialogue_panel", "dialogue_label") instance=ExtResource("3_1amgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8797514, 1.1378627, -14.980881)
+dialogue_panel = NodePath("../../DialogueLabel")
+dialogue_label = NodePath("../../DialogueLabel/Label")
+
+[node name="Меню" type="Node" parent="."]
+
+[node name="PauseMenu" type="CanvasLayer" parent="Меню"]
+process_mode = 3
+visible = false
+script = ExtResource("1_2isbp")
+
+[node name="Panel" type="Panel" parent="Меню/PauseMenu"]
+offset_right = 464.0
+offset_bottom = 646.0
+
+[node name="ExitMenu" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_top = 125.0
+offset_right = 461.0
+offset_bottom = 229.0
+text = "Выход в меню"
+
+[node name="Start" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 462.0
+offset_bottom = 105.0
+text = "Продолжить"
+
+[node name="Exit" type="Button" parent="Меню/PauseMenu/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 255.0
+offset_right = 464.0
+offset_bottom = 359.0
+text = "Выход"
+
+[connection signal="button_up" from="Меню/PauseMenu/Panel/ExitMenu" to="." method="_on_exit_menu_button_up"]
+[connection signal="button_up" from="Меню/PauseMenu/Panel/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="Меню/PauseMenu/Panel/Exit" to="." method="_on_exit_button_up"]

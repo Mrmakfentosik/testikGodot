@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dli5hkna6pmmi"]
+
+[ext_resource type="Script" uid="uid://clyv0li053rr1" path="res://Сундук/chest.gd" id="1_jmfd3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxfaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcxjc"]
+size = Vector3(1.3312988, 1, 1.5386353)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmfd3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmfd3"]
+material = SubResource("StandardMaterial3D_jmfd3")
+
+[node name="Chest" type="StaticBody3D"]
+script = ExtResource("1_jmfd3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rxfaf")
+
+[node name="InteractionZone" type="Area3D" parent="."]
+transform = Transform3D(1.8216517, 0, 0, 0, 1, 0, 0, 0, 1.6492026, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZone"]
+transform = Transform3D(1.0000004, 0, 0, 0, 1, 0, 0, 0, 1, 0.023315454, 0, -0.08169556)
+shape = SubResource("BoxShape3D_lcxjc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jmfd3")
+
+[node name="InteractionPrompt" type="Label3D" parent="."]
+transform = Transform3D(1.8216523, 0, 0, 0, 1, 0, 0, 0, 1.6492026, 0, 0.67040277, 0.5126301)
+visible = false
+billboard = 1
+text = "E"
+
+[connection signal="body_entered" from="InteractionZone" to="." method="_on_interaction_zone_body_entered"]
+[connection signal="body_exited" from="InteractionZone" to="." method="_on_interaction_zone_body_exited"]

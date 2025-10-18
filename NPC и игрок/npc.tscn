@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmsouu0j51mwb"]
+
+[ext_resource type="Script" uid="uid://btodjuovh1o5v" path="res://NPC и игрок/npc_dialogue.gd" id="1_ideak"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v7lw1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ideak"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7lw1"]
+size = Vector3(3.89917, 2.0963135, 4.7492676)
+
+[node name="NPC" type="StaticBody3D"]
+script = ExtResource("1_ideak")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_v7lw1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ideak")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368042, 0.1350708, 0.11462402)
+shape = SubResource("BoxShape3D_v7lw1")
+
+[node name="InteractionPrompt" type="Label3D" parent="."]
+transform = Transform3D(2.179885, 0, 0, 0, 1.5516598, 0, 0, 0, 1, 0, 0.24371523, 0.57810473)
+visible = false
+billboard = 1
+text = "E"
+font_size = 40
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

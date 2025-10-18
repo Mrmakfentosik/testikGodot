@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cajr1piw3tmlw"]
+
+[ext_resource type="Script" uid="uid://dcrjffhdvmuaj" path="res://Меню/MainMenu.gd" id="1_06t4h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rhts7"]
+line_spacing = 3.125
+font_size = 56
+font_color = Color(1, 0.25882354, 1, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_06t4h")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 49.0
+text = "Тест меню
+"
+label_settings = SubResource("LabelSettings_rhts7")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 116.0
+offset_right = 719.0
+offset_bottom = 189.0
+text = "Начать игру"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 218.0
+offset_right = 719.0
+offset_bottom = 291.0
+text = "Выход"
+
+[connection signal="button_up" from="Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="Exit" to="." method="_on_exit_button_up"]

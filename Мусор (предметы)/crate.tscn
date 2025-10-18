@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://lpqr1mgf2umi"]
+
+[ext_resource type="Texture2D" uid="uid://crn8cxutn6r7o" path="res://Textures/laminate_floor_02_diff_4k.jpg" id="1_uep05"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4417n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mo0jf"]
+albedo_texture = ExtResource("1_uep05")
+uv1_scale = Vector3(0.175, 0.175, 0.175)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uep05"]
+material = SubResource("StandardMaterial3D_mo0jf")
+uv2_padding = 1.21
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mo0jf"]
+
+[node name="Crate" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_4417n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uep05")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mo0jf")
