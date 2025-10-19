@@ -33,6 +33,8 @@ transform = Transform3D(1, 0, 0, 0, 0.36164084, 0.93231744, 0, -0.93231744, 0.36
 
 [node name="MeleeArea" type="Area3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.926922, -0.3752538, 0, 0.3752538, 0.926922, 0, -0.87010336, 0.099200964)
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/MeleeArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25635147, -2.0602722)
@@ -44,7 +46,15 @@ stream = ExtResource("2_3konq")
 [node name="DashCooldownTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DashDurationTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="PlayerStats" type="Node" parent="."]
 script = ExtResource("4_oghu4")
 
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+
 [connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]
+[connection signal="timeout" from="DashDurationTimer" to="." method="_on_dash_cooldown_timer_timeout"]

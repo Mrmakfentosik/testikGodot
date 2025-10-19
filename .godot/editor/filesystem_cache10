@@ -1,0 +1,59 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1760851472
+icon.svg::CompressedTexture2D::778131635989682538::1759954768::1759954774::1::::<><><>0<>0<>2e0298e3cd286333208a96d3008f4be7<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+inventory_slot.gd::GDScript::4606886968049206461::1760846716::0::1::::<>Panel<><>0<>0<><>::
+QuestManager.gd::GDScript::8769313356153561380::1760016725::0::1::::<>Node<><>0<>0<><>::
+::res://addons/::1760782613
+::res://addons/git_bash_here/::1760845504
+git_bash_here.gd::GDScript::2510110795132018060::1760782613::0::1::::<>EditorPlugin<><>0<>1<><>::
+git_bash_here_shortcut.tres::Shortcut::7567228415636296829::1760845504::0::1::::<><><>0<>0<><>::
+plugin.cfg::TextFile::-1::1760782614::0::1::::<><><>0<>0<><>::
+README.md::TextFile::-1::1760782613::0::1::::<><><>0<>0<><>::
+::res://NPC и игрок/::1760846625
+camera_controller.gd::GDScript::477680141021724011::1759958502::0::1::::<>RefCounted<><>0<>0<><>::
+game_state.gd::GDScript::3518440587201475580::1760846625::0::1::::<>Node<><>0<>0<><>::
+NewPlayer.gd::GDScript::9016666810095325454::1760829163::0::1::::<>CharacterBody3D<><>0<>0<><>::
+npc.tscn::PackedScene::5653153133929653805::1760062477::0::1::::<><><>0<>0<><>::uid://btodjuovh1o5v::::res://NPC и игрок/npc_dialogue.gd
+npc_dialogue.gd::GDScript::3749109297554798761::1760016759::0::1::::<>StaticBody3D<><>0<>0<><>::
+player.tscn::PackedScene::2414488166640186781::1760829163::0::1::::<><><>0<>0<><>::uid://d1p0gj4wso0xm::::res://NPC и игрок/NewPlayer.gd<>uid://d0u8gmmve15f4::::res://Звуки/Взмах/422499__nightflame__swinging-staff-whoosh-low-07.wav<>uid://bkvw3fg5px3h5::::res://Оружие/sword.tscn<>uid://bxtvj4lmsjwcn::::res://NPC и игрок/player_stats.gd
+player_stats.gd::GDScript::4041279934427882577::1760828788::0::1::::<>Node<><>0<>0<><>::
+::res://Textures/::1759963229
+laminate_floor_02_diff_4k.jpg::CompressedTexture2D::5994897092199659066::1759962748::1759963229::1::::<><><>0<>0<>ccb8d9e9c70a37a52afc583143486768<>res://.godot/imported/laminate_floor_02_diff_4k.jpg-b259d62dd0c9ccdf6edb2663a16d3853.s3tc.ctex::
+rocky_terrain_02_diff_4k.jpg::CompressedTexture2D::4160071598924917383::1759962733::1759962828::1::::<><><>0<>0<>72fd40d1ea0eb950fd2f4006919faf10<>res://.godot/imported/rocky_terrain_02_diff_4k.jpg-92c573467ac4cafc67f0efdb0f344e37.s3tc.ctex::
+::res://UIScrin/::1760663403
+Sword.png::CompressedTexture2D::2027916224306116401::1760661774::1760663403::1::::<><><>0<>0<>5cb788ec9481e4d92149cfa0ceecf211<>res://.godot/imported/Sword.png-9eae14e96a029eb39fae3a037dae2751.ctex::
+Книга.png::CompressedTexture2D::7452672944775708434::1760661816::1760663403::1::::<><><>0<>0<>df2996dba453bbf2787593d9683f807b<>res://.godot/imported/Книга.png-1efd9ccecf7d4598436ecc38cd2ad138.ctex::
+::res://Враги/::1760016784
+enemy.tscn::PackedScene::3440832249867820101::1759981467::0::1::::<><><>0<>0<><>::uid://cjj3341it3cet::::res://Враги/enemy_health.gd<>uid://3dntts6tqo2v::::res://Звуки/Попадание/464623__d001447733__enemy_hit.wav<>uid://bt184vjop7wtq::::res://Звуки/Смерть врага/547041__cogfirestudios__hit-swing-sword-small-3.wav
+enemy_health.gd::GDScript::5424872001673875379::1760016784::0::1::::<>CharacterBody3D<><>0<>0<><>::
+::res://Звуки/::1759977251
+::res://Звуки/Взмах/::1759977214
+422499__nightflame__swinging-staff-whoosh-low-07.wav::AudioStreamWAV::8957285722414431727::1759977189::1759977214::1::::<><><>0<>0<>597402d566babbe0f6891ea0ba65391a<>res://.godot/imported/422499__nightflame__swinging-staff-whoosh-low-07.wav-d4ae3c825123c7a019b1ec627e67a23a.sample::
+::res://Звуки/Попадание/::1759977228
+464623__d001447733__enemy_hit.wav::AudioStreamWAV::1972305033301909875::1759977189::1759977228::1::::<><><>0<>0<>b7a3e1f66048efa298d6aa3d9dbc9294<>res://.godot/imported/464623__d001447733__enemy_hit.wav-b4b86d8116d0a98008a541dfc7448f41.sample::
+::res://Звуки/Смерть врага/::1759977260
+547041__cogfirestudios__hit-swing-sword-small-3.wav::AudioStreamWAV::3775739100756823390::1759977189::1759977252::1::::<><><>0<>0<>7671198f4135446a9da322969c5dd4d5<>res://.godot/imported/547041__cogfirestudios__hit-swing-sword-small-3.wav-5cf56e30e69ce5c653e8ab3d5f580c05.sample::
+::res://Меню/::1760849612
+inventory_slot.tscn::PackedScene::4459962076525611361::1760849612::0::1::::<><><>0<>0<><>::uid://b6vu0xd5djcft::::res://inventory_slot.gd
+MainMenu.gd::GDScript::7335289815674052521::1759967167::0::1::::<>Control<><>0<>0<><>::
+main_menu.tscn::PackedScene::4792500187937742548::1760065580::0::1::::<><><>0<>0<><>::uid://dcrjffhdvmuaj::::res://Меню/MainMenu.gd
+world_manager.gd::GDScript::2591413929995365525::1760849581::0::1::::<>CanvasLayer<><>0<>0<><>::
+::res://Мир/::1760848699
+enemy_spawner.gd::GDScript::6533185021393975188::1759982843::0::1::::<>Node3D<><>0<>0<><>::
+word.tscn::PackedScene::7176535962210492104::1760848699::0::1::::<><><>0<>0<><>::uid://lpqr1mgf2umi::::res://Мусор (предметы)/crate.tscn<>uid://banujdbwwabq0::::res://NPC и игрок/player.tscn<>uid://b0jf1h1xl1gap::::res://Textures/rocky_terrain_02_diff_4k.jpg<>uid://cmsouu0j51mwb::::res://NPC и игрок/npc.tscn<>uid://bc6khdnlj1bej::::res://Меню/world_manager.gd<>uid://bpa1afev6trcv::::res://Враги/enemy.tscn<>uid://c0cyuq3e02l1m::::res://Мир/enemy_spawner.gd<>uid://dw66ksc6vkpku::::res://QuestManager.gd<>uid://dli5hkna6pmmi::::res://Сундук/chest.tscn
+::res://Мусор (предметы)/::1759982863
+crate.tscn::PackedScene::804046161135035224::1759982863::0::1::::<><><>0<>0<><>::uid://crn8cxutn6r7o::::res://Textures/laminate_floor_02_diff_4k.jpg
+::res://Оружие/::1759979332
+antique_estoc_4k.blend::PackedScene::2797736194781988801::1759978495::1759978496::1::::<><><>0<>0<>5566d2b9824bb50f44452cf4d0c80e0e<>res://.godot/imported/antique_estoc_4k.blend-e0259848211f03e49df94562e3edc18d.scn::
+antique_estoc_diff_4k.jpg::CompressedTexture2D::5852062903654356214::1759978696::1759979002::1::::<><><>0<>0<>a6a063663df3ea80bb906ef8b8edb8e0<>res://.godot/imported/antique_estoc_diff_4k.jpg-f7c14ff19081704697ca2bdaa3f0a374.s3tc.ctex::
+sword.tscn::PackedScene::3133047102248501092::1759979332::0::1::::<><><>0<>0<><>::uid://bf4ikofygkw1f::::res://Оружие/antique_estoc_4k.blend<>uid://cpm1vd52saxes::::res://Оружие/antique_estoc_diff_4k.jpg
+::res://Сундук/::1760649628
+chest.gd::GDScript::5595784006490094464::1760649628::0::1::::<>Node<><>0<>0<><>::
+chest.tscn::PackedScene::7949688908828454904::1760649412::0::1::::<><><>0<>0<><>::uid://clyv0li053rr1::::res://Сундук/chest.gd
+random_chest.gd::GDScript::1218044918517665880::1760067507::0::1::::<>StaticBody3D<><>0<>0<><>::
+random_chest.tscn::PackedScene::7934350252285726116::1760649277::0::1::::<><><>0<>0<><>::uid://rmba0i1et0r1::::res://Сундук/random_chest.gd
+::res://Урон/::1760231983
+damage_number.gd::GDScript::8973422446032904143::1760231757::0::1::::<>Label3D<><>0<>0<><>::
+damage_number.tscn::PackedScene::5265804607359971160::1760231983::0::1::::<><><>0<>0<><>::uid://d0317r5jqvtnb::::res://Урон/damage_number.gd
+::res://Эфекты/::1759980003
+hit_effect.tscn::PackedScene::8041242270879632414::1759980003::0::1::::<><><>0<>0<><>::

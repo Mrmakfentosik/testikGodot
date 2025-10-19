@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://banujdbwwabq0"]
+
+[ext_resource type="Script" uid="uid://d1p0gj4wso0xm" path="res://NPC и игрок/NewPlayer.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://d0u8gmmve15f4" path="res://Звуки/Взмах/422499__nightflame__swinging-staff-whoosh-low-07.wav" id="2_3konq"]
+[ext_resource type="PackedScene" uid="uid://bkvw3fg5px3h5" path="res://Оружие/sword.tscn" id="2_17lge"]
+[ext_resource type="Script" uid="uid://bxtvj4lmsjwcn" path="res://NPC и игрок/player_stats.gd" id="4_oghu4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sh265"]
+size = Vector3(1, 1.9301414, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7k2ou"]
+size = Vector3(1, 0.74240875, 3.132019)
+
+[node name="player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_sh265")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06723976, 0)
+shape = SubResource("BoxShape3D_sh265")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.92692214, 0.37525386, 0, -0.37525386, 0.92692214, 0, 0.76929253, -0.41846123)
+keep_aspect = 0
+current = true
+
+[node name="antique_estoc_4k" parent="Camera3D" instance=ExtResource("2_17lge")]
+transform = Transform3D(1, 0, 0, 0, 0.36164084, 0.93231744, 0, -0.93231744, 0.36164084, 0.24617246, -0.34234023, -0.13859262)
+
+[node name="MeleeArea" type="Area3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.926922, -0.3752538, 0, 0.3752538, 0.926922, 0, -0.87010336, 0.099200964)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/MeleeArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25635147, -2.0602722)
+shape = SubResource("BoxShape3D_7k2ou")
+
+[node name="SwingSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_3konq")
+
+[node name="DashCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource("4_oghu4")
+speed = null
+jump_velocity = null
+acceleration = null
+dash_speed = null
+dash_time = null
+dash_cooldown = null
+mouse_sensitivity = null
+max_health = null
+
+[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]

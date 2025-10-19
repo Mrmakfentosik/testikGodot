@@ -1,3 +1,10 @@
-# Godot 4+ specific ignores
-.godot/
-/android/
+# Godot 4.x
+/.godot/          # кэш импортов и служебные файлы — НЕ коммитим
+# Экспорты/билды (если собираешь)
+export/ 
+build/
+bin/
+
+# ОС и IDE мусор
+.DS_Store
+Thumbs.db

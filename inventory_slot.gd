@@ -1,33 +1,33 @@
 extends Panel
 
-@onready var item_texture = $ItemTexture
-@onready var item_name = $ItemName
-@onready var item_bonus = $BonusLabel
+@onready var item_texture: TextureRect = $MarginContainer/VBoxContainer/ItemTexture
+@onready var item_name: Label = $MarginContainer/VBoxContainer/ItemName
+@onready var item_bonus: Label = $MarginContainer/VBoxContainer/BonusLabel
 
-func update_slot(item_data: Dictionary):
-	# Имя
-	item_name.text = item_data.get("name", "???")
+func update_slot(item_data: Dictionary) -> void:
+	item_name.text = str(item_data.get("name", "???"))
 
-	# Цвет по редкости
-	match item_data.get("rarity", "common"):
-		"common":   item_name.add_theme_color_override("font_color", Color.WHITE)
-		"uncommon": item_name.add_theme_color_override("font_color", Color.LIME)
-		"rare":     item_name.add_theme_color_override("font_color", Color.MEDIUM_PURPLE)
+	match str(item_data.get("rarity", "common")):
+		"common":
+			item_name.add_theme_color_override("font_color", Color.WHITE)
+		"uncommon":
+			item_name.add_theme_color_override("font_color", Color.LIME)
+		"rare":
+			item_name.add_theme_color_override("font_color", Color.MEDIUM_PURPLE)
+		_:
+			item_name.add_theme_color_override("font_color", Color.WHITE)
 
-	# Иконка
+	var tex: Texture2D = null
 	if item_data.has("icon_path"):
-		var tex = load(item_data.icon_path)
-		print("Загружаем:", item_data.icon_path, " → ", tex)
-		if tex:
-			item_texture.texture = tex
-	else:
-		print("❌ load() вернул null")
+		tex = load(item_data["icon_path"]) as Texture2D
+	item_texture.texture = tex
+	item_texture.visible = tex != null
 
-	# Бонусы
 	if item_data.has("bonus"):
-		var bonus_text = ""
-		for key in item_data.bonus.keys():
-			bonus_text += key + ": +" + str(round(item_data.bonus[key] * 100)) + "%\n"
-		item_bonus.text = bonus_text
+		var bonus := item_data["bonus"] as Dictionary
+		var lines: Array[String] = []
+		for k in bonus.keys():
+			lines.append("%s: +%d%%" % [str(k), int(round(float(bonus[k]) * 100.0))])
+		item_bonus.text = "\n".join(lines)
 	else:
 		item_bonus.text = ""
