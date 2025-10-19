@@ -12,6 +12,8 @@ var player
 
 func _ready():
 	player = get_parent()
+func get_crit_multiplier() -> float:
+	return crit_multiplier
 
 func _process(delta):
 	if health_regen_per_second > 0:

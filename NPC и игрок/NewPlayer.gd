@@ -17,7 +17,7 @@ extends CharacterBody3D
 @export var attack_window_start: float = 0.08   # через сколько после клика включить хитбокс
 @export var attack_window_end: float = 0.22     # когда выключить хитбокс
 @export var knockback_strength: float = 6.0
-@export var hitstop_time: float = 0.06          # микропаузa при попадании
+#@export var hitstop_time: float = 0.06          # микропаузa при попадании
 
 # ------------------ СОСТОЯНИЕ ------------------
 var current_health: int = 0
@@ -200,27 +200,28 @@ func _hit_enemy(enemy: Node) -> void:
 	var crit_chance: float = 0.0
 	var crit_mult: float = 1.0
 
-	if stats and stats.has_method("get_total_damage"):
-		total_damage = float(stats.call("get_total_damage"))
-	if stats and stats.has_method("get_total_crit_chance"):
-		crit_chance = float(stats.call("get_total_crit_chance"))
-	if stats and stats.has_variable("crit_multiplier"):
-		crit_mult = float(stats.get("crit_multiplier"))
+	if stats:
+		if stats.has_method("get_total_damage"):
+			total_damage = float(stats.call("get_total_damage"))
+		if stats.has_method("get_total_crit_chance"):
+			crit_chance = float(stats.call("get_total_crit_chance"))
+		# безопасно читаем экспортную переменную без has_variable()
+		var v = stats.get("crit_multiplier")    # вернёт null, если свойства нет
+		if v != null:
+			crit_mult = float(v)
 
 	var is_critical: bool = randf() < crit_chance
 	if is_critical:
 		total_damage *= crit_mult
 
-	# Наносим урон + нока-бэк
 	enemy.call_deferred("take_damage", total_damage)
+
 	var kb_dir: Vector3 = -transform.basis.z * knockback_strength
 	if enemy.has_method("apply_knockback"):
 		enemy.call_deferred("apply_knockback", kb_dir)
 
-	# Хитстоп
-	_do_hitstop(hitstop_time)
+	#_do_hitstop(hitstop_time)
 
-	# Числа урона (если сцена существует)
 	if DAMAGE_NUMBER_SCENE:
 		var num := DAMAGE_NUMBER_SCENE.instantiate() as Node3D
 		if num:
@@ -228,6 +229,7 @@ func _hit_enemy(enemy: Node) -> void:
 			if enemy is Node3D:
 				num.global_position = (enemy as Node3D).global_position + Vector3.UP
 			num.call_deferred("setup", total_damage, is_critical)
+
 
 func _do_hitstop(dur: float) -> void:
 	var prev: float = Engine.time_scale

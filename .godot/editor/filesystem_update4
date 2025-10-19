@@ -1,3 +1,4 @@
 res://NPC и игрок/player.tscn
 res://addons/git_bash_here/git_bash_here_shortcut.tres
 res://NPC и игрок/NewPlayer.gd
+res://NPC и игрок/player_stats.gd
